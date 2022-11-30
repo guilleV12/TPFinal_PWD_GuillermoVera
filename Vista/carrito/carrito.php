@@ -32,7 +32,7 @@ if ($objSession->tienePermisos($url)){
                     <div class="col-2">
                     </div>
                       <div class="col-4">
-                      <div class="card m-4" style="width: 18rem;height:150px">
+                      <div class="card m-4" style="width: 18rem;height:150px;background-color:#D5F3FE;">
                           <div class="card-body">
                               <h5 class="card-title"><?php 
                                 echo $comprai->getIdProducto()->getProNombre();

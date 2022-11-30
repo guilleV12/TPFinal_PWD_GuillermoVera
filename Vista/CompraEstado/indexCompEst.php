@@ -41,7 +41,7 @@ $listaCET = $objCET->buscar(null);
                         <label for="idcompra" class="control-label"></label>
                         <div class="input-group">
                         <input id="idcompraestado" name="idcompraestado" type="hidden" readonly value="<?php echo count($listaCET) ?>">
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>

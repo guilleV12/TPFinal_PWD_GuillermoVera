@@ -28,12 +28,12 @@ $listaMR = $objMR->buscar($idmenu);
 if (count($listaMR) > 0){
 ?>
 
-<div class="row">
-     <div class="col-2">
+<div class="row" style="margin-top:5%">
+     <div class="col-4">
      </div>
-        <div class="col-4">
+        <div class="col-4" style="background-color:#3C99DC;border-radius:1%;padding-left:6%">
         <div class="card m-4" style="width: 18rem;">
-            <div class="card-body">
+            <div class="card-body" style="padding-left:30%">
                 <h5 class="card-title">Productos</h5>
                 <h6 class="card-subtitle mb-2 text-muted"></h6>
                 <p class="card-text"></p>

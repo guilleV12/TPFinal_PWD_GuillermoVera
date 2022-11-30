@@ -50,7 +50,7 @@ if (isset($data['idcompra'])){
                     $modProd[0]['idproducto'] = $listaProd[0]->getIdProducto();
                     $modProd[0]['pronombre'] = $listaProd[0]->getPronombre();
                     $modProd[0]['prodetalle'] = $listaProd[0]->getProDetalle();
-                    $modProd[0]['procantstock'] = ($listaProd[0]->getProCantStock())-($compit->getCiCantidad());
+                    $modProd[0]['procantstock'] = (($listaProd[0]->getProCantStock())-($compit->getCiCantidad()));
         
                     $objProd->modificacion($modProd[0]);
                     if (!$objProd->modificacion($modProd[0])) {
@@ -154,7 +154,7 @@ if (isset($data['idcompra'])){
                     $modProd[0]['idproducto'] = $listaProd[0]->getIdProducto();
                     $modProd[0]['pronombre'] = $listaProd[0]->getPronombre();
                     $modProd[0]['prodetalle'] = $listaProd[0]->getProDetalle();
-                    $modProd[0]['procantstock'] = ($listaProd[0]->getProCantStock())+($compit->getCiCantidad());
+                    $modProd[0]['procantstock'] = (($listaProd[0]->getProCantStock())+($compit->getCiCantidad()));
         
                     $objProd->modificacion($modProd[0]);
                     if (!$objProd->modificacion($modProd[0])) {
@@ -203,7 +203,7 @@ if (isset($data['idcompra'])){
                     $modProd[0]['idproducto'] = $listaProd[0]->getIdProducto();
                     $modProd[0]['pronombre'] = $listaProd[0]->getPronombre();
                     $modProd[0]['prodetalle'] = $listaProd[0]->getProDetalle();
-                    $modProd[0]['procantstock'] = ($listaProd[0]->getProCantStock())+($compit->getCiCantidad());
+                    $modProd[0]['procantstock'] = (($listaProd[0]->getProCantStock())+($compit->getCiCantidad()));
         
                     $objProd->modificacion($modProd[0]);
                     if (!$objProd->modificacion($modProd[0])) {

@@ -11,7 +11,7 @@ $data = data_submitted();
 <div class="container d-flex justify-content-center align-items-start text-center mt-20vh">
   <div class="text-center mx-auto" style="max-width:300px">
 
-    <img class="mb-4" src="../img/logo.png" alt="logo" width="72" height="72">
+    <img class="mb-4" src="../img/logo.png" alt="logo" width="72" height="72" style="border-radius:25%">
     <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
 
     <form class="needs-validation" data-toggle="loginValidator" id="form-login" novalidate  method="post">

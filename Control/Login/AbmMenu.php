@@ -123,6 +123,8 @@ class AbmMenu{
                 $where.=" and idmenu ='".$param['idmenu']."'";
             if  (isset($param['menombre']))
                 $where.=" and menombre ='".$param['menombre']."'";
+            if  (isset($param['idpadre']))
+                $where.=" and idpadre ='".$param['idpadre']."'";
         }
         $arreglo = Menu::listar($where);  
         return $arreglo;

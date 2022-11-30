@@ -9,97 +9,41 @@ $obj= new AbmUsuario();
 $lista = $obj->buscar(null);
 $url = basename(__FILE__);
 if ($objSession->tienePermisos($url)){
-switch ($objSession->rolActual()) {
-    case 'Administrador':
-        ?>
-       
-        <div class="tab" style="margin-left:20%">
-            <h4 style="margin-bottom:3%">Administracion del sitio: </h4>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Usuarios</a>
-                <a href="../Usuario/indexUsuario.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a><br>
-            </div>
-            <div class="item2" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Roles</a>
-                <a href="../Rol/indexRol.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Usuario Rol</a>
-                <a href="../UsuarioRol/indexUsuarioRol.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Cambiar Rol</a>
-                <a href="../UsuarioRol/cambiarRol.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-           
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Menus</a>
-                <a href="../Menu/indexMenu.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Menu rol</a>
-                <a href="../MenuRol/indexMenuRol.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Compra Estado</a>
-                <a href="../CompraEstado/indexCompEst.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Productos</a>
-                <a href="../Productos/indexProductos.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-        </div>
-<?php
-        break;
+    $objMenu = new AbmMenu();
+    $paramIdMenu['idpadre'] = 6;
+    $listaMenus = $objMenu->buscar($paramIdMenu);
 
-    case 'Cliente':
-        ?>
-        <div class="tab" style="margin-left:20%">
-            <h4 style="margin-bottom:3%">Administracion de cuenta: </h4>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Datos cuenta</a>
-                <a href="../Usuario/indexUsuarioClte.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a><br>
-            </div>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Estado de mis compras</a>
-                <a href="../CompraEstado/indexCompEstClte.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Cambiar Rol</a>
-                <a href="../UsuarioRol/cambiarRol.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-        </div>
+?>
+
+<div class="card" style="width: 18rem;margin-left:20%;width:60%;background-color:#EBECF0">
+<ul style="margin-left:5%;margin-top:0%;list-style:none">
+<?php
+    foreach($listaMenus as $submenu){
+    if ($submenu->getMeDeshabilitado() == '0000-00-00 00:00:00'){
+
+?>
+<?php
+        if ($objSession->tienePermisos($submenu->getMeNombre())){
+?>
+        <li style="margin-top:2%">
+        
+        <a id="btn" href="<?php echo $submenu->getMeDescripcion(); ?>" class="btn btn-primary" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+        </svg>
+        <?php echo $submenu->getMeNombre(); ?></a>
+        </li>
+<?php
+        }
+?>
+<?php
+    }
+    }
+?>
+</ul>
+</div>
 
 <?php
-
-        break;
-
-    case 'Deposito':
-        ?>
-        <div class="tab" style="margin-left:20%">
-            <h4 style="margin-bottom:3%">Administracion : </h4>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Productos</a>
-                <a href="../Productos/indexProductos.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Cambiar Rol</a>
-                <a href="../UsuarioRol/cambiarRol.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-            <div class="item1" style="margin-bottom:2%">
-                <a href="#" style="margin-left:4%" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" disabled>Compra Estado</a>
-                <a href="../CompraEstado/indexCompEst.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ir</a>
-            </div>
-        </div>
-
-<?php
-
-        break;
-    
-    default:
-        # code...
-        break;
-}
 }else{
     include_once "../error/error.php";
 }
