@@ -5,7 +5,7 @@ $respuesta = false;
 if (isset($data['idcompra'])){
     $objC = new AbmCompraEstado();
     $objEliminar = $objC->buscar($data);
-    if ($objEliminar[0]->getCeFechaFin() == "0000-00-00 00:00:00"){
+    if ($objEliminar[0]->getCeFechaFin() == "0000-00-00 00:00:00" ){
     if ($objEliminar[0]->getIdCompraEstadoTipo()->getIdCompraEstadoTipo() == 1){
         if ($data['idcompraestadotipo'] == 2){
             $arrEliminar[0] = ['idcompraestado'=>$data['idcompraestado'],
@@ -70,7 +70,7 @@ if (isset($data['idcompra'])){
                             'idcompra'=>$data['idcompra'],
                             'idcompraestadotipo'=>$objEliminar[0]->getIdCompraEstadoTipo()->getIdCompraEstadoTipo(),
                             'cefechaini'=>date("Y-m-d H:i:s"),
-                            'cefechafin'=>date("Y-m-d h:i:sa")];
+                            'cefechafin'=>date("Y-m-d H:i:s")];
             $respuesta = $objC->modificacion($arrEliminar[0]);
             if (!$respuesta){
                 $mensaje = " La accion MODIFICACION No pudo ccretarse";
@@ -83,7 +83,7 @@ if (isset($data['idcompra'])){
                             'idcompra'=>$data['idcompra'],
                             'idcompraestadotipo'=>4,
                             'cefechaini'=>$objEliminar[0]->getCeFechaIni(),
-                            'cefechafin'=>date('Y-m-d H:i:s')];
+                            'cefechafin'=>"0000-00-00 00:00:00"];
             $respuesta = $objC->alta($arrNuevo[0]);
             if (!$respuesta){
                 $mensaje = "el insert";
@@ -123,7 +123,7 @@ if (isset($data['idcompra'])){
                             'idcompra'=>$data['idcompra'],
                             'idcompraestadotipo'=>$objEliminar[0]->getIdCompraEstadoTipo()->getIdCompraEstadoTipo(),
                             'cefechaini'=>date("Y-m-d H:i:s"),
-                            'cefechafin'=>date("Y-m-d h:i:sa")];
+                            'cefechafin'=>date("Y-m-d H:i:s")];
             $respuesta = $objC->modificacion($arrEliminar[0]);
             if (!$respuesta){
                 $mensaje = " La accion MODIFICACION No pudo ccretarse";
@@ -136,7 +136,7 @@ if (isset($data['idcompra'])){
                             'idcompra'=>$data['idcompra'],
                             'idcompraestadotipo'=>4,
                             'cefechaini'=>$objEliminar[0]->getCeFechaIni(),
-                            'cefechafin'=>date('Y-m-d H:i:s')];
+                            'cefechafin'=>"0000-00-00 00:00:00"];
             $respuesta = $objC->alta($arrNuevo[0]);
             if (!$respuesta){
                 $mensaje = "el insert";
@@ -185,7 +185,7 @@ if (isset($data['idcompra'])){
                         'idcompra'=>$data['idcompra'],
                         'idcompraestadotipo'=>4,
                         'cefechaini'=>$objEliminar[0]->getCeFechaIni(),
-                        'cefechafin'=>date('Y-m-d H:i:s')];
+                        'cefechafin'=>"0000-00-00 00:00:00"];
             $respuesta = $objC->alta($arrNuevo[0]);
             if (!$respuesta){
             $mensaje = "el insert";

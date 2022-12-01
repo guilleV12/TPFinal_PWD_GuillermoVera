@@ -73,7 +73,7 @@ if ($objSession->tienePermisos($url)){
 <table id="dg" title="Lista de Compras" class="easyui-datagrid" style="width:700px;height:400px" url="listarClte.php" singleSelect="true">
         <thead>
         <tr>
-        <th field="idcompra" width="100" hidden="true">Compra</th>
+        <th field="idcompra" width="100" >Compra</th>
         <th field="idcompraestadotipo" width="200">Estado</th>
         <th field="cefechaini" width="170">Fecha inicial</th>
         <th field="cefechafin" width="170">Fecha final</th>

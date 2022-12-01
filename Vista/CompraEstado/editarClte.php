@@ -26,7 +26,7 @@ if (isset($data['idcompraestado'])){
                             'idcompra'=>$data['idcompra'],
                             'idcompraestadotipo'=>4,
                             'cefechaini'=>date('Y-m-d H:i:s'),
-                            'cefechafin'=>date('Y-m-d H:i:s')];
+                            'cefechafin'=>"0000-00-00 00:00:00"];
 
             $respuesta = $objC->alta($arrNuevo[0]);
             if (!$respuesta){
