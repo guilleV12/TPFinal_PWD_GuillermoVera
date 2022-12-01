@@ -9,7 +9,7 @@ if ($objMen->estaDeshabilitada($url)){
 if ($objSession->tienePermisos($url)){
 $objCE = new AbmCompraEstado(); 
 $objCET = new AbmCompraEstadoTipo();
-$listaCE = $objCE->buscar(null);
+$listaCE = $objCE->buscar(null); 
 $listaCET = $objCET->buscar(null);
 
 ?>
